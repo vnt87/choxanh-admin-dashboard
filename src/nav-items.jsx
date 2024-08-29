@@ -1,4 +1,4 @@
-import { HomeIcon } from "lucide-react";
+import { LayoutDashboard, Package, Truck, Users, Settings } from "lucide-react";
 import Index from "./pages/Index.jsx";
 
 /**
@@ -6,9 +6,33 @@ import Index from "./pages/Index.jsx";
  */
 export const navItems = [
   {
-    title: "Home",
+    title: "Dashboard",
     to: "/",
-    icon: <HomeIcon className="h-4 w-4" />,
+    icon: <LayoutDashboard className="h-4 w-4" />,
     page: <Index />,
+  },
+  {
+    title: "Inventory",
+    to: "/inventory",
+    icon: <Package className="h-4 w-4" />,
+    page: <div>Inventory Page</div>,
+  },
+  {
+    title: "Shipments",
+    to: "/shipments",
+    icon: <Truck className="h-4 w-4" />,
+    page: <div>Shipments Page</div>,
+  },
+  {
+    title: "Employees",
+    to: "/employees",
+    icon: <Users className="h-4 w-4" />,
+    page: <div>Employees Page</div>,
+  },
+  {
+    title: "Settings",
+    to: "/settings",
+    icon: <Settings className="h-4 w-4" />,
+    page: <div>Settings Page</div>,
   },
 ];
