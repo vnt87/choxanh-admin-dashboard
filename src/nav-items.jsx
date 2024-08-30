@@ -1,5 +1,6 @@
 import { LayoutDashboard, Package, Truck, Users, Settings } from "lucide-react";
 import Index from "./pages/Index.jsx";
+import Inventory from "./pages/Inventory.jsx";
 
 /**
  * Central place for defining the navigation items. Used for navigation components and routing.
@@ -15,7 +16,7 @@ export const navItems = [
     title: "Inventory",
     to: "/inventory",
     icon: <Package className="h-4 w-4" />,
-    page: <div>Inventory Page</div>,
+    page: <Inventory />,
   },
   {
     title: "Shipments",
