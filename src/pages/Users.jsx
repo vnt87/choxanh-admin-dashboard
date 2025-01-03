@@ -16,7 +16,7 @@ const employeesData = [
   { id: 10, name: "Amanda Clark", position: "Safety Coordinator", department: "Safety", hireDate: "2021-10-03" },
 ];
 
-const Employees = () => {
+const Users = () => {
   return (
     <div className="space-y-6">
       <Card>
@@ -55,4 +55,4 @@ const Employees = () => {
   );
 };
 
-export default Employees;
+export default Users;

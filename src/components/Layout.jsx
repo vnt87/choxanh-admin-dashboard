@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { LayoutDashboard, Package, Truck, Users, Settings } from 'lucide-react';
 
@@ -17,9 +16,9 @@ const Sidebar = () => (
         <Truck size={20} />
         <span>Shipments</span>
       </NavLink>
-      <NavLink to="/employees" className="flex items-center space-x-2 p-2 hover:bg-gray-800 rounded">
+      <NavLink to="/users" className="flex items-center space-x-2 p-2 hover:bg-gray-800 rounded">
         <Users size={20} />
-        <span>Employees</span>
+        <span>Users</span>
       </NavLink>
       <NavLink to="/settings" className="flex items-center space-x-2 p-2 hover:bg-gray-800 rounded">
         <Settings size={20} />

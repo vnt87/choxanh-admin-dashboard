@@ -1,5 +1,4 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 const inventoryData = [
@@ -89,7 +88,7 @@ const Index = () => {
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold">24</p>
-              <p className="text-sm text-gray-400">Active Employees</p>
+              <p className="text-sm text-gray-400">Active Users</p>
             </div>
           </div>
         </CardContent>

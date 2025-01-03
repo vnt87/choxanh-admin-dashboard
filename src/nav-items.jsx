@@ -1,7 +1,9 @@
-import { LayoutDashboard, Package, Truck, Users, Settings } from "lucide-react";
+import { LayoutDashboard, Package, Truck, Users as UsersIcon, Settings as SettingsIcon } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Inventory from "./pages/Inventory.jsx";
-import Employees from "./pages/Employees.jsx";
+import Users from "./pages/Users.jsx";
+import Settings from "./pages/Settings.jsx";
+import Orders from "./pages/Orders.jsx";
 
 /**
  * Central place for defining the navigation items. Used for navigation components and routing.
@@ -20,21 +22,21 @@ export const navItems = [
     page: <Inventory />,
   },
   {
-    title: "Shipments",
-    to: "/shipments",
+    title: "Orders",
+    to: "/orders",
     icon: <Truck className="h-4 w-4" />,
-    page: <div>Shipments Page</div>,
+    page: <Orders />,
   },
   {
-    title: "Employees",
-    to: "/employees",
-    icon: <Users className="h-4 w-4" />,
-    page: <Employees />,
+    title: "Users",
+    to: "/users",
+    icon: <UsersIcon className="h-4 w-4" />,
+    page: <Users />,
   },
   {
     title: "Settings",
     to: "/settings",
-    icon: <Settings className="h-4 w-4" />,
-    page: <div>Settings Page</div>,
+    icon: <SettingsIcon className="h-4 w-4" />,
+    page: <Settings />,
   },
 ];
