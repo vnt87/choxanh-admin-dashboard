@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Breadcrumb } from './ui/breadcrumb';
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from './ui/breadcrumb';
 import { LayoutDashboard, Package, Truck, Users, Settings, Sun, Moon, Heart, ArrowRightFromLine, ArrowLeftFromLine } from 'lucide-react';
 import { Button } from "./ui/button";
 import { useTheme } from "../context/ThemeContext";
@@ -74,6 +74,12 @@ const Footer = () => (
 
 const Layout = ({ children }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const location = useLocation();
+  const pathSegments = location.pathname
+    .split('/')
+    .filter(Boolean)
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -87,7 +93,23 @@ const Layout = ({ children }) => {
           <Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
           <main className={`flex-1 p-6 transition-all duration-300 ${isCollapsed ? 'ml-20' : 'ml-64'} max-w-screen-2xl mx-auto`}>
             <div className="mb-6">
-              <Breadcrumb />
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="/">Dashboard</BreadcrumbLink>
+                  </BreadcrumbItem>
+                  {location.pathname !== '/' && (
+                    <>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                        <BreadcrumbLink href={location.pathname}>
+                          {pathSegments}
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
+                    </>
+                  )}
+                </BreadcrumbList>
+              </Breadcrumb>
             </div>
             <div className="space-y-6">
               {children}
