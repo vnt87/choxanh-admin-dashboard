@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import { useTheme } from "../context/ThemeContext";
 
 const Sidebar = ({ isCollapsed, toggleSidebar }) => (
-  <aside className={`bg-background text-foreground h-[calc(100vh-4rem)] p-4 border-r transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} flex flex-col`}>
+  <aside className={`bg-background text-foreground h-[calc(100vh-4rem)] p-4 border-r transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} flex flex-col fixed md:relative z-50`}>
     <nav className="space-y-2 flex-1">
       <NavLink to="/" className="flex items-center space-x-2 p-2 hover:bg-accent rounded">
         <LayoutDashboard size={20} />
@@ -91,8 +91,9 @@ const Layout = ({ children }) => {
       <div className="flex flex-1">
         <>
           <Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
-          <main className={`flex-1 p-6 transition-all duration-300 ${isCollapsed ? 'ml-20' : 'ml-64'} max-w-screen-2xl mx-auto`}>
-            <div className="mb-6">
+          <main className={`flex-1 p-6 transition-all duration-300 ${isCollapsed ? 'ml-20' : 'ml-64'} max-w-screen-2xl mx-auto w-full`}>
+            <div className="flex flex-col items-center w-full">
+              <div className="w-full max-w-7xl mb-6">
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
@@ -111,9 +112,10 @@ const Layout = ({ children }) => {
                 </BreadcrumbList>
               </Breadcrumb>
             </div>
-            <div className="space-y-6">
+            <div className="w-full max-w-7xl space-y-6">
               {children}
             </div>
+              </div>
           </main>
         </>
       </div>
