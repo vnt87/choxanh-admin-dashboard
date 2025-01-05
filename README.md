@@ -1,6 +1,6 @@
-# Dark Warehouse Dashboard
+# ChoXanh Admin Dashboard
 
-A modern React-based dashboard for warehouse management, featuring inventory tracking, order management, and user administration.
+A modern React-based dashboard for marketplace management, featuring inventory tracking, order management, and user administration. Original created as a admin template for ChoXanh Marketplace Project by Nam Vu.
 
 ## Features
 
