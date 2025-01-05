@@ -27,10 +27,13 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => (
       </NavLink>
     </nav>
     <div className="mt-auto pt-4">
-      <Button variant="ghost" size="icon" onClick={toggleSidebar} className="w-full">
+      <Button variant="ghost" onClick={toggleSidebar} className="w-full flex items-center space-x-2 p-2 hover:bg-accent rounded">
         {isCollapsed ? 
           <ArrowRightFromLine className="h-4 w-4" /> :
-          <ArrowLeftFromLine className="h-4 w-4" />
+          <>
+            <ArrowLeftFromLine className="h-4 w-4" />
+            <span>Collapse</span>
+          </>
         }
       </Button>
     </div>

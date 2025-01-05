@@ -1,65 +1,10 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from './ui/breadcrumb';
-import { Sun, Moon, Heart } from 'lucide-react';
-import { Button } from "./ui/button";
-import { useTheme } from "../context/ThemeContext";
 import Sidebar from './Sidebar';
+import Header from './Header';
+import Footer from './Footer';
 
-const Navbar = ({ toggleSidebar }) => {
-  const { theme, toggleTheme } = useTheme();
-  
-  return (
-    <header className="bg-background text-foreground p-4 border-b">
-      <div className="flex items-center justify-between px-6">
-        <div className="flex items-center gap-4">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={toggleSidebar}
-            className="md:hidden"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </Button>
-          <h1 className="text-2xl">
-            <span className="font-bold">ChoXanh</span>
-            <span className="font-thin"> Admin</span>
-          </h1>
-        </div>
-        <Button variant="ghost" size="icon" onClick={toggleTheme}>
-          {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-        </Button>
-      </div>
-    </header>
-  );
-};
-
-const Footer = () => (
-  <footer className="bg-background text-foreground p-4 border-t text-center text-sm">
-    Crafted with <Heart className="inline h-4 w-4 text-red-500" /> by {' '}
-    <a 
-      href="https://namvu.net" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="hover:underline"
-    >
-      Nam Vu
-    </a>
-  </footer>
-);
 
 const Layout = ({ children }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -76,7 +21,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
-      <Navbar toggleSidebar={toggleSidebar} />
+      <Header toggleSidebar={toggleSidebar} />
       <div className="flex flex-1 relative">
         <>
           <div 
