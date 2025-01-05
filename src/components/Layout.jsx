@@ -1,31 +1,36 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Package, Truck, Users, Settings } from 'lucide-react';
-import { Switch } from "./ui/switch";
-import { Label } from "./ui/label";
+import { LayoutDashboard, Package, Truck, Users, Settings, Sun, Moon, Heart, Menu } from 'lucide-react';
+import { Button } from "./ui/button";
 import { useTheme } from "../context/ThemeContext";
 
-const Sidebar = () => (
-  <aside className="bg-background text-foreground w-64 min-h-screen p-4 border-r">
+const Sidebar = ({ isCollapsed, toggleSidebar }) => (
+  <aside className={`bg-background text-foreground min-h-screen p-4 border-r transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'}`}>
+    <div className="flex justify-end mb-4">
+      <Button variant="ghost" size="icon" onClick={toggleSidebar}>
+        <Menu className="h-4 w-4" />
+      </Button>
+    </div>
     <nav className="space-y-2">
       <NavLink to="/" className="flex items-center space-x-2 p-2 hover:bg-accent rounded">
         <LayoutDashboard size={20} />
-        <span>Dashboard</span>
+        {!isCollapsed && <span>Dashboard</span>}
       </NavLink>
       <NavLink to="/inventory" className="flex items-center space-x-2 p-2 hover:bg-accent rounded">
         <Package size={20} />
-        <span>Inventory</span>
+        {!isCollapsed && <span>Inventory</span>}
       </NavLink>
       <NavLink to="/shipments" className="flex items-center space-x-2 p-2 hover:bg-accent rounded">
         <Truck size={20} />
-        <span>Shipments</span>
+        {!isCollapsed && <span>Shipments</span>}
       </NavLink>
       <NavLink to="/users" className="flex items-center space-x-2 p-2 hover:bg-accent rounded">
         <Users size={20} />
-        <span>Users</span>
+        {!isCollapsed && <span>Users</span>}
       </NavLink>
       <NavLink to="/settings" className="flex items-center space-x-2 p-2 hover:bg-accent rounded">
         <Settings size={20} />
-        <span>Settings</span>
+        {!isCollapsed && <span>Settings</span>}
       </NavLink>
     </nav>
   </aside>
@@ -36,25 +41,51 @@ const Navbar = () => {
   
   return (
   <header className="bg-background text-foreground p-4 border-b">
-      <div className="container mx-auto flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Warehouse Management Dashboard</h1>
-        <div className="flex items-center space-x-2">
-          <Switch id="theme-toggle" checked={theme === "dark"} onCheckedChange={toggleTheme} />
-          <Label htmlFor="theme-toggle">Dark Mode</Label>
-        </div>
-      </div>
-    </header>
+    <div className="flex items-center justify-between px-6">
+      <h1 className="text-2xl font-bold">Warehouse Management Dashboard</h1>
+      <Button variant="ghost" size="icon" onClick={toggleTheme}>
+        {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      </Button>
+    </div>
+  </header>
   );
 };
 
-const Layout = ({ children }) => (
-  <div className="flex flex-col min-h-screen bg-background text-foreground">
-    <Navbar />
-    <div className="flex flex-1">
-      <Sidebar />
-      <main className="flex-1 p-6">{children}</main>
-    </div>
-  </div>
+const Footer = () => (
+  <footer className="bg-background text-foreground p-4 border-t text-center text-sm">
+    Crafted with <Heart className="inline h-4 w-4 text-red-500" /> by {' '}
+    <a 
+      href="https://namvu.net" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="hover:underline"
+    >
+      Nam Vu
+    </a>
+  </footer>
 );
+
+const Layout = ({ children }) => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
+  return (
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
+      <Navbar />
+      <div className="flex flex-1">
+        <>
+          <Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
+          <main className={`flex-1 p-6 transition-all duration-300 ${isCollapsed ? 'ml-20' : 'ml-64'}`}>
+            {children}
+          </main>
+        </>
+      </div>
+      <Footer />
+    </div>
+  );
+};
 
 export default Layout;
