@@ -1,67 +1,116 @@
-# Welcome to your GPT Engineer project
+# Dark Warehouse Dashboard
 
-## Project info
+A modern React-based dashboard for warehouse management, featuring inventory tracking, order management, and user administration.
 
-**Project**: dark-warehouse-dashboard
+## Features
 
-**URL**: https://run.gptengineer.app/projects/1e2fedd0-5221-4ec0-ab9f-e01d54251b45/improve
+- Real-time inventory tracking
+- Order management system
+- User administration
+- Dark mode support
+- Responsive design
+- Customizable UI components
 
-## How can I edit this code?
+## Technology Stack
 
-There are several ways of editing your application.
+- **Frontend**: React + Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **State Management**: React Context
+- **Build Tool**: Vite
 
-**Use GPT Engineer**
+## Installation
 
-Simply visit the GPT Engineer project at [GPT Engineer](https://gptengineer.app/projects/1e2fedd0-5221-4ec0-ab9f-e01d54251b45/improve) and start prompting.
-
-Changes made via gptengineer.app will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in the GPT Engineer UI.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+1. Clone the repository:
 ```sh
 git clone https://github.com/GPT-Engineer-App/dark-warehouse-dashboard.git
 cd dark-warehouse-dashboard
-npm i
+```
 
-# This will run a dev server with auto reloading and an instant preview.
+2. Install dependencies:
+```sh
+npm install
+```
+
+3. Start development server:
+```sh
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/      # Reusable UI components
+├── context/         # React context providers
+├── lib/             # Utility functions
+├── pages/           # Application pages
+│   ├── Index.jsx
+│   ├── Inventory.jsx
+│   ├── Orders.jsx
+│   ├── Settings.jsx
+│   └── Users.jsx
+```
 
-**Use GitHub Codespaces**
+## Available Pages
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Dashboard**: Overview of warehouse operations
+- **Inventory**: Manage and track stock levels
+- **Orders**: Process and monitor orders
+- **Users**: Manage user accounts and permissions
+- **Settings**: Configure system preferences
 
-## What technologies are used for this project?
+## UI Components
 
-This project is built with .
+The project uses shadcn/ui components with custom styling. Available components include:
 
-- Vite
-- React
-- shadcn-ui
-- Tailwind CSS
+- Accordion
+- Alert
+- Avatar
+- Badge
+- Button
+- Card
+- Date Picker
+- Dialog
+- Dropdown
+- Form
+- Input
+- Table
+- Toast
+- Tooltip
 
-## How can I deploy this project?
+## Development
 
-All GPT Engineer projects can be deployed directly via the GPT Engineer app.
+To start the development server:
+```sh
+npm run dev
+```
 
-Simply visit your project at [GPT Engineer](https://gptengineer.app/projects/1e2fedd0-5221-4ec0-ab9f-e01d54251b45/improve) and click on Share -> Publish.
+The application will be available at `http://localhost:5173`
 
-## I want to use a custom domain - is that possible?
+## Deployment
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify or GitHub pages. Visit our docs for more details: [Custom domains](https://docs.gptengineer.app/tips-tricks/custom-domain/)
+The application can be deployed using:
+
+1. **Vercel**: Recommended for production deployments
+2. **Netlify**: Alternative deployment platform
+3. **GitHub Pages**: For static hosting
+
+To build for production:
+```sh
+npm run build
+```
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a pull request
+
+## License
+
+MIT License
