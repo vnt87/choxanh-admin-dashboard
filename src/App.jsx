@@ -5,11 +5,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { navItems } from "./nav-items";
 import Layout from "./components/Layout";
 import { ThemeProvider } from "./context/ThemeContext";
+import SplashCursor from './components/SplashCursor'
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <ThemeProvider>
+    <SplashCursor />
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
