@@ -4,9 +4,6 @@ A modern React-based dashboard for marketplace management, featuring inventory t
 
 ## Features
 
-- Real-time inventory tracking
-- Order management system
-- User administration
 - Dark mode support
 - Responsive design
 - Customizable UI components
