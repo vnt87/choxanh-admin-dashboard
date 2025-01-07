@@ -22,5 +22,5 @@ export default defineConfig({
       },
     ],
   },
-  base: process.env.NODE_ENV === 'production' ? '/choxanh-admin-dashboard/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/choxanh-admin/' : '/',
 });

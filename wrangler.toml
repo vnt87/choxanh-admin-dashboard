@@ -1,0 +1,12 @@
+name = "choxanh-admin"
+main = "./dist/index.html"
+compatibility_date = "2024-05-01"
+
+[pages]
+bucket = "./dist"
+production_branch = "main"
+pages_build_output_dir = "./dist"
+
+[[routes]]
+pattern = "choxanh-admin.pages.dev/*"
+zone_name = "pages.dev"
