@@ -29,31 +29,33 @@ const Layout = ({ children }) => {
             onClick={toggleSidebar}
           />
           <Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
-          <main className={`flex-1 p-4 md:p-6 transition-all duration-300 ${isCollapsed ? 'ml-0 md:ml-20' : 'ml-0 md:ml-64'} max-w-screen-2xl mx-auto w-full`}>
-            <div className="flex flex-col items-center w-full">
-              <div className="w-full max-w-7xl mb-6">
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink href="/">Dashboard</BreadcrumbLink>
-                  </BreadcrumbItem>
-                  {location.pathname !== '/' && (
-                    <>
-                      <BreadcrumbSeparator />
+          <main className={`flex-1 transition-all duration-300 ${isCollapsed ? 'md:pl-[20px]' : 'md:pl-[50px]'}`}>
+            <div className="p-4 md:p-6 max-w-screen-2xl mx-auto">
+              <div className="flex flex-col items-center w-full">
+                <div className="w-full max-w-7xl mb-6">
+                  <Breadcrumb>
+                    <BreadcrumbList>
                       <BreadcrumbItem>
-                        <BreadcrumbLink href={location.pathname}>
-                          {pathSegments}
-                        </BreadcrumbLink>
+                        <BreadcrumbLink href="/">Dashboard</BreadcrumbLink>
                       </BreadcrumbItem>
-                    </>
-                  )}
-                </BreadcrumbList>
-              </Breadcrumb>
-            </div>
-            <div className="w-full max-w-7xl space-y-6">
-              {children}
-            </div>
+                      {location.pathname !== '/' && (
+                        <>
+                          <BreadcrumbSeparator />
+                          <BreadcrumbItem>
+                            <BreadcrumbLink href={location.pathname}>
+                              {pathSegments}
+                            </BreadcrumbLink>
+                          </BreadcrumbItem>
+                        </>
+                      )}
+                    </BreadcrumbList>
+                  </Breadcrumb>
+                </div>
+                <div className="w-full max-w-7xl space-y-6">
+                  {children}
+                </div>
               </div>
+            </div>
           </main>
         </>
       </div>
