@@ -20,8 +20,8 @@ A modern React-based dashboard for marketplace management, featuring inventory t
 
 1. Clone the repository:
 ```sh
-git clone https://github.com/GPT-Engineer-App/dark-warehouse-dashboard.git
-cd dark-warehouse-dashboard
+git https://github.com/vnt87/choxanh-admin-dashboard.git
+cd choxanh-admin-dashboard
 ```
 
 2. Install dependencies:
